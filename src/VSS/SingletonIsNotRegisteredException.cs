@@ -11,6 +11,7 @@ public class SingletonIsNotRegisteredException(Type type) : Exception($"Singleto
     /// Throws <see cref="SingletonIsNotRegisteredException"/> if the singleton for <typeparamref name="T"/> is not created.
     /// </summary>
     /// <typeparam name="T">The singleton type.</typeparam>
+    /// <exception cref="SingletonIsNotRegisteredException">Thrown when the singleton is not registered.</exception>
     public static void ThrowIfIsNotCreated<T>() where T : class
     {
         if(Singleton<T>.IsCreated) return;

@@ -11,6 +11,7 @@ public class SingletonAlreadyRegisteredException(Type type) : Exception($"Single
     /// Throws <see cref="SingletonAlreadyRegisteredException"/> if the singleton for <typeparamref name="T"/> is already created.
     /// </summary>
     /// <typeparam name="T">The singleton type.</typeparam>
+    /// <exception cref="SingletonAlreadyRegisteredException">Thrown when the singleton is already registered/created.</exception>
     public static void ThrowIfIsCreated<T>() where T : class
     {
         if(!Singleton<T>.IsCreated) return;
