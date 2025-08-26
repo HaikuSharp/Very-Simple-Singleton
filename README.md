@@ -47,32 +47,5 @@ Singleton.RegisterLazy(() => new MyService());
 MyService instance = Singleton.GetInstance<MyService>();
 ```
 
-- If you registered an existing instance:
-```csharp
-var service = new MyService();
-Singleton.RegisterInstance(service);
-
-// Access the same instance you registered
-MyService instance = service;
-```
-
-- Create a small wrapper to centralize access:
-```csharp
-using VSS;
-
-public static class MyServiceSingleton
-{
-    private static readonly Lazy<MyService> Lazy = new(() => new MyService(), true);
-
-    public static void Register() => Singleton.RegisterLazy(Lazy);
-
-    public static MyService Instance => Lazy.Value;
-}
-
-// Usage
-MyServiceSingleton.Register();
-var instance = MyServiceSingleton.Instance;
-```
-
 ### License
 Licensed under the MIT License. See `LICENSE` for details. 
